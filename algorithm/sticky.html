@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>selectSort</title>
+	<style>
+	*{margin:0;padding:0;}
+	
+	#top-bar{
+		background:green;
+		height:60px;
+		color:white;
+		text-align:center;
+	}
+	#top-bar.sticky{
+		position:fixed;
+		top:0;
+		left:0;
+		width:100%;
+		opacity:0.5;
+	}
+	main {
+		background:#ddd;
+		height:800px;
+	}
+	main .sticky{
+		position:fixed;
+		top:60px;
+		left:0;
+		
+	}
+	</style>
+</head>
+<body>
+	
+	<div id="top-bar">
+		topbar
+	</div>
+	
+	
+	<main>主要内容
+		<p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p>
+		<button>黏住的按钮</button>
+		<p>段落1111111111111</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p><p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+		<p>段落7</p>
+		<p>段落8</p>
+		<p>段落9</p>
+	</main>
+	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	
+	class Sticky{
+		constructor(selector,n){
+			this.element = $(selector)
+			this.offset = n || 0
+			this.cacheOffset = this.element.offset().top
+			this.wrap()
+			this.listenToScroll()
+		}
+		wrap(){
+			var height = this.element.height()
+			this.element.wrap("<div class='wrapper'></div>")
+			this.element.parent().height(height)
+		}
+		listenToScroll(){
+			$(window).on('scroll',()=>{
+console.log(this.cacheOffset)
+				var ScrollY = window.scrollY
+
+				if(ScrollY + this.offset > this.cacheOffset){
+					console.log('success')
+					this.element.addClass('sticky')
+				}else{
+					console.log('fail')
+					this.element.removeClass('sticky')
+				}
+			})
+		}
+	}
+	new Sticky("#top-bar")
+	new Sticky("button",60)
+</script>
+
+</body>
+</html>

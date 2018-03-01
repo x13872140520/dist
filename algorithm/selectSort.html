@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>selectSort</title>
+	
+	
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	function Arraylist(){
+		this.array = []
+		
+		this.insert = function(i){
+			this.array.push(i)
+		}
+		this.toString = function(){
+			return	this.array.join()	
+		}
+		this.selectSort = function(){
+			var length = this.array.length
+			var indexmin
+			for(var i = 0;i<length-1;i++){
+				indexmin = i
+				for(var j=i;j<length;j++){
+					console.log(array[indexmin]+','+j)
+					if(array[indexmin]>array[j]){
+					indexmin = j
+				}
+				}
+				
+			}
+			if(i !== indexmin){
+				var middleStatu = this.array[i]
+				this.array[i] = this.array[indexmin]
+				this.array[indexmin] = middleStatu
+			}
+
+		}
+		
+	
+	}
+
+		function createNonSortedArray(size){
+			var array = new Arraylist()
+			for(var i=size;i>0;i--){
+				array.insert(i)
+				}
+				return array
+}
+
+
+	array = createNonSortedArray(5)
+		console.log(array.toString())
+		array.selectSort()
+		console.log(array.toString())
+</script>
+
+</body>
+</html>
